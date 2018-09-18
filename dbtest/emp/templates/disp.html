@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Employee Register</title>
+    <style>
+        .container{
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+        #emplist table{
+            width: 100%;
+        }
+        table tr td{
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Employee Register</h1>
+    <hr/>
+    <ul>
+        <li>
+            <a href="./">Home</a>
+        </li>
+        <li>
+            <a href="./insert">Add Employee</a>
+        </li>
+        <li>
+            <a style="background-color:crimson;color:cornsilk" href="./disp">Employee List</a>
+        </li>
+    </ul>
+    <div class="container">
+        <div id="emplist">
+            <table border="1">
+                <tr>
+                    <th>Name</th>
+                    <th>Post</th>
+                    <th>Date of Birth</th>
+                    <th>Joining Date</th>
+                    <th>Salary</th>
+                </tr>
+                {% for emp in emplist %}
+                    <tr>
+                        <td>{{emp.name}}</td>
+                        <td>{{emp.post}}</td>
+                        <td>{{emp.dob}}</td>
+                        <td>{{emp.join_date}}</td>
+                        <td>{{emp.salary}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+            
+        </div>
+        <div>
+                <br/>
+                <br/>
+                <table border="1">
+                    <tr>
+                        <td>
+                            <a href="javascript:printList()" >Print Employee List</a>
+                        </td>
+                        <td>
+                            <a href="./csv">Download Employee List as CSV</a>
+                        </td>
+                        <td>
+                            <a href="./pdf">Download Employee List as PDF</a>
+                        </td>
+                        <td>
+                            <a href="./json">Download Employee List as JSON</a>
+                        </td>
+                        <td>
+                            <a href="./excel">Download Employee List as MS Excel</a>
+                        </td>
+                    </tr>
+                </table>
+        </div>
+    </div>
+    <script>
+        function printList(){
+            var mywindow = window.open('', 'PRINT', 'height=600,width=700');
+            mywindow.document.write('</head><body >');
+            mywindow.document.write('<h1>' + document.title  + '</h1><hr/>');
+            mywindow.document.write(document.getElementById("emplist").innerHTML);
+            mywindow.document.write('</body></html>');
+
+            mywindow.document.close(); // necessary for IE >= 10
+            mywindow.focus(); // necessary for IE >= 10*/
+
+            mywindow.print();
+            mywindow.close();
+
+            return true;
+        }
+    </script>
+</body>
+</html>

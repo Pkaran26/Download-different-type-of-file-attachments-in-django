@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Employee Register</title>
+</head>
+<body>
+    <h1>Employee Register</h1>
+    <hr/>
+    <div class="">
+        <ul>
+            <li>
+                <a href="./">Home</a>
+            </li>
+            <li>
+                <a style="background-color:crimson;color:cornsilk" href="./insert">Add Employee</a>
+            </li>
+            <li>
+                <a href="./disp">Employee List</a>
+            </li>
+        </ul>
+        <div>
+            <form action="./add" method="post">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <td>Name</td>
+                        <td>
+                            <input type="text" name="name" id="name">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Post</td>
+                        <td>
+                            <input type="text" name="post" id="post">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Date of Birth</td>
+                        <td>
+                            <input type="date" name="dob" id="dob">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Salary</td>
+                        <td>
+                            <input type="text" name="salary" id="salary">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="submit" value="Submit">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
