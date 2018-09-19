@@ -5,57 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Employee Register</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
 </head>
 <body>
-    <h1>Employee Register</h1>
-    <hr/>
-    <div class="">
-        <ul>
-            <li>
-                <a href="./">Home</a>
-            </li>
-            <li>
-                <a style="background-color:crimson;color:cornsilk" href="./insert">Add Employee</a>
-            </li>
-            <li>
-                <a href="./disp">Employee List</a>
-            </li>
-        </ul>
-        <div>
-            <form action="./add" method="post">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../"><b><i class="glyphicon glyphicon-send"></i> Employee Register</b></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="./">HOME</a></li>
+                    <li><a href="./insert">Add Employee</a></li>
+                    <li><a href="./disp">Employee List</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <div class="container" style="margin-top:60px;">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h1 style="margin:0">Employee Register</h1>
+                <hr/>
+            </div>
+        </div>
+        <div class="row">
+            <form class="col-md-4" action="./add" method="post">
                 {% csrf_token %}
-                <table>
-                    <tr>
-                        <td>Name</td>
-                        <td>
-                            <input type="text" name="name" id="name">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Post</td>
-                        <td>
-                            <input type="text" name="post" id="post">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Date of Birth</td>
-                        <td>
-                            <input type="date" name="dob" id="dob">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Salary</td>
-                        <td>
-                            <input type="text" name="salary" id="salary">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>
-                            <input type="submit" value="Submit">
-                        </td>
-                    </tr>
-                </table>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="">Name</label>
+                            <input type="text" name="name" class="form-control" id="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Post</label>
+                            <input type="text" name="post" class="form-control" id="post">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Date of Birth</label>
+                            <input type="date" name="dob" class="form-control" id="dob">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Salary</label>
+                            <input type="text" name="salary" class="form-control" id="salary">
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary" value="Submit">
+                            <input type="reset" class="btn btn-danger" value="Clear">
+                        </div>
+                    </div>
+                </div>
             </form>
         </div>
     </div>

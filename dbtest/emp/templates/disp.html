@@ -5,78 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Employee Register</title>
-    <style>
-        .container{
-            margin-left: 10%;
-            margin-right: 10%;
-        }
-        #emplist table{
-            width: 100%;
-        }
-        table tr td{
-            padding: 5px;
-        }
-    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 </head>
 <body>
-    <h1>Employee Register</h1>
-    <hr/>
-    <ul>
-        <li>
-            <a href="./">Home</a>
-        </li>
-        <li>
-            <a href="./insert">Add Employee</a>
-        </li>
-        <li>
-            <a style="background-color:crimson;color:cornsilk" href="./disp">Employee List</a>
-        </li>
-    </ul>
-    <div class="container">
-        <div id="emplist">
-            <table border="1">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../"><b><i class="glyphicon glyphicon-send"></i> Employee Register</b></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="./">HOME</a></li>
+                    <li><a href="./insert">Add Employee</a></li>
+                    <li><a href="./disp"></a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <div class="container" style="margin-top:60px;">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h1 style="margin:0">Employee Register</h1>
+                <hr/>
+            </div>
+        </div>
+        <div class="panel panel-default">
+                <div class="panel-body">
+    <div id="emplist">
+        <table class="table table-bordered" >
+            <tr>
+                <th>Name</th>
+                <th>Post</th>
+                <th>Date of Birth</th>
+                <th>Joining Date</th>
+                <th>Salary</th>
+            </tr>
+            {% for emp in emplist %}
                 <tr>
-                    <th>Name</th>
-                    <th>Post</th>
-                    <th>Date of Birth</th>
-                    <th>Joining Date</th>
-                    <th>Salary</th>
+                    <td>{{emp.name}}</td>
+                    <td>{{emp.post}}</td>
+                    <td>{{emp.dob}}</td>
+                    <td>{{emp.join_date}}</td>
+                    <td>{{emp.salary}}</td>
                 </tr>
-                {% for emp in emplist %}
-                    <tr>
-                        <td>{{emp.name}}</td>
-                        <td>{{emp.post}}</td>
-                        <td>{{emp.dob}}</td>
-                        <td>{{emp.join_date}}</td>
-                        <td>{{emp.salary}}</td>
-                    </tr>
-                {% endfor %}
-            </table>
-            
-        </div>
-        <div>
-                <br/>
-                <br/>
-                <table border="1">
-                    <tr>
-                        <td>
-                            <a href="javascript:printList()" >Print Employee List</a>
-                        </td>
-                        <td>
-                            <a href="./csv">Download Employee List as CSV</a>
-                        </td>
-                        <td>
-                            <a href="./pdf">Download Employee List as PDF</a>
-                        </td>
-                        <td>
-                            <a href="./json">Download Employee List as JSON</a>
-                        </td>
-                        <td>
-                            <a href="./excel">Download Employee List as MS Excel</a>
-                        </td>
-                    </tr>
-                </table>
-        </div>
+            {% endfor %}
+        </table>
+        
+    </div>
+    </div>
+    </div>
+    <div class="panel panel-default">
+            <div class="panel-body">
+        <br/>
+        <table class="table table-bordered text-center">
+            <tr>
+                <td>
+                    <a class="btn btn-primary" href="javascript:printList()" >Print </a>
+                </td>
+                <td>
+                    <a class="btn btn-primary" href="./csv">Download  as CSV</a>
+                </td>
+                <td>
+                    <a class="btn btn-primary" href="./pdf">Download  as PDF</a>
+                </td>
+                <td>
+                    <a class="btn btn-primary" href="./json">Download  as JSON</a>
+                </td>
+                <td>
+                    <a class="btn btn-primary" href="./excel">Download  as MS Excel</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </div>
     </div>
     <script>
         function printList(){
